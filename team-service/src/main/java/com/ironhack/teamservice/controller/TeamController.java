@@ -24,14 +24,14 @@ public class TeamController implements ITeamController {
     }
 
     @Override
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Team findById(@PathVariable Long id){
         return teamService.findById(id);
     }
 
     @Override
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteTeam(@PathVariable Long id){
         teamService.deleteTeam(id);
@@ -45,7 +45,7 @@ public class TeamController implements ITeamController {
     }
 
     @Override
-    @PutMapping
+    @PutMapping("/{id}/edit")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Team editTeam(@RequestBody TeamDTO teamDTO){
         return teamService.editTeam(teamDTO);
