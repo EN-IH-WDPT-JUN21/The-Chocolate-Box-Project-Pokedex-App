@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -12,9 +14,11 @@ import lombok.Setter;
 public class TeamDTO {
 
     private Long id;
-
+    @NotNull
     private String name;
+    @NotNull
     private String photo;
+    @NotNull
     private Long trainerId;
     private Integer pokemonId1;
     private Integer pokemonId2;
