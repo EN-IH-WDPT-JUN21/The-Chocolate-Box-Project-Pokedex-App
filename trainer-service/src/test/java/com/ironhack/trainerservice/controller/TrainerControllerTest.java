@@ -71,16 +71,28 @@ class TrainerControllerTest {
         assertEquals(1, trainerList.size());
     }
 
-//    @Test
-//    void addTrainer_PositiveTest() throws Exception {
-//        TrainerDTO trainerDTO = new TrainerDTO("Jane", 27, "Photo URL", "Singing", 6L, 9);
-//        String body = objectMapper.writeValueAsString(trainerDTO);
-//        MvcResult result = mockMvc.perform(post("/api/v1/trainers").content(body)
-//                .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isCreated()).andReturn();
-//        assertTrue(result.getResponse().getContentAsString().contains("Jane"));
-//    }
+    @Test
+    void addTrainer_PositiveTest() throws Exception {
+        TrainerDTO trainerDTO = new TrainerDTO("Jane", 27, "Photo URL", "Singing", 6L, 9);
+        String body = objectMapper.writeValueAsString(trainerDTO);
+        MvcResult result = mockMvc.perform(post("/api/v1/trainers").content(body)
+                .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isCreated()).andReturn();
+        assertTrue(result.getResponse().getContentAsString().contains("Jane"));
+    }
 
     @Test
-    void editTrainer() {
+    void editTrainer_PositiveTest() throws Exception {
+        TrainerDTO trainerDTO = new TrainerDTO(trainerList.get(0).getId(), "new name", 30, "new photo URL", "new hobby", 2L, 3);
+        String body = objectMapper.writeValueAsString(trainerDTO);
+        var repoSizeBefore = trainerRepository.findAll().size();
+        MvcResult result = mockMvc.perform(put("/api/v1/trainers").content(body)
+                .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andReturn();
+        var repoSizeAfter = trainerRepository.findAll().size();
+        assertEquals(repoSizeBefore, repoSizeAfter);
+        assertEquals(trainerDTO.getName(), trainerRepository.findById(trainerList.get(0).getId()).get().getName());
+        assertEquals(trainerDTO.getAge(), trainerRepository.findById(trainerList.get(0).getId()).get().getAge());
+        assertEquals(trainerDTO.getPhoto(), trainerRepository.findById(trainerList.get(0).getId()).get().getPhoto());
+        assertEquals(trainerDTO.getHobby(), trainerRepository.findById(trainerList.get(0).getId()).get().getHobby());
+        assertEquals(trainerDTO.getFavouritePokemonId(), trainerRepository.findById(trainerList.get(0).getId()).get().getFavouritePokemonId());
     }
 }

@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "trainer")
 public class Trainer {
 
     @Id
@@ -20,13 +19,13 @@ public class Trainer {
     private Long id;
 
     private String name;
-    private int age;
+    private Integer age;
     private String photo;
     private String hobby;
     private Long teamId;
     private int favouritePokemonId;
 
-    public Trainer(String name, int age, String photo, String hobby, Long teamId, int favouritePokemonId) {
+    public Trainer(String name, Integer age, String photo, String hobby, Long teamId, int favouritePokemonId) {
         this.name = name;
         this.age = age;
         this.photo = photo;

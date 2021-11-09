@@ -19,14 +19,14 @@ public class TrainerDTO {
     private String name;
 
     @NotNull
-    private int age;
+    private Integer age;
 
     private String photo;
     private String hobby;
     private Long teamId;
     private int favouritePokemonId;
 
-    public TrainerDTO(String name, int age, String photo, String hobby, Long teamId, int favouritePokemonId) {
+    public TrainerDTO(String name, Integer age, String photo, String hobby, Long teamId, int favouritePokemonId) {
         this.name = name;
         this.age = age;
         this.photo = photo;

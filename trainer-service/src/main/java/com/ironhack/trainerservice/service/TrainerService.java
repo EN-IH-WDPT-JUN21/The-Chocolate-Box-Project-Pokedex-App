@@ -36,14 +36,13 @@ public class TrainerService implements ITrainerService {
 
     @Override
     public Trainer addTrainer(TrainerDTO trainerDTO) {
-        Trainer trainer = new Trainer(
-                trainerDTO.getName(),
-                trainerDTO.getAge(),
-                trainerDTO.getPhoto(),
-                trainerDTO.getHobby(),
-                trainerDTO.getTeamId(),
-                trainerDTO.getFavouritePokemonId()
-        );
+        Trainer trainer = new Trainer();
+        trainer.setName(trainerDTO.getName());
+        trainer.setAge(trainerDTO.getAge());
+        trainer.setPhoto(trainerDTO.getPhoto());
+        trainer.setHobby(trainerDTO.getHobby());
+        trainer.setTeamId(trainerDTO.getTeamId());
+        trainer.setFavouritePokemonId(trainerDTO.getFavouritePokemonId());
         return trainerRepository.save(trainer);
     }
 
