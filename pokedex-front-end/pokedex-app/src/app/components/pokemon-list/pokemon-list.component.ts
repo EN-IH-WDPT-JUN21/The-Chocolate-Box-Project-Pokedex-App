@@ -1,3 +1,5 @@
+import { PokemonListDTO, PokemonListDTOResult } from './../../models/pokemon-model';
+import { PokemonService } from './../../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-  constructor() { }
+pokemonList: PokemonListDTOResult[];
 
-  ngOnInit(): void {
+
+  constructor(private pokemonService: PokemonService) { 
+    this.pokemonList = [];
   }
+
+  loadPokemonList() {
+    this.pokemonService.getPokemonListDTO().subscribe(
+      result => {
+        this.pokemonList = result.results;
+        console.log(this.pokemonList.length);
+      }
+      )
+      
+      
+    }
+    
+    ngOnInit() {
+      this.loadPokemonList();    
+    }
+
 
 }
