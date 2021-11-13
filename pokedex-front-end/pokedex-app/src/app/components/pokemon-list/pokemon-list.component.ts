@@ -9,27 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-pokemonList: PokemonListDTOResult[];
+  pokemonList: PokemonListDTOResult[];
+  previousBatchURL: string;
+  nextBatchURL: string;
 
 
-  constructor(private pokemonService: PokemonService) { 
+  constructor(private pokemonService: PokemonService) {
     this.pokemonList = [];
+    this.previousBatchURL = '';
+    this.nextBatchURL = '';
   }
 
-  loadPokemonList() {
-    this.pokemonService.getPokemonListDTO().subscribe(
+  loadPokemonList(url?: string) {
+    let getRequest = (typeof url != 'undefined') ? this.pokemonService.getPokemonListDTO(url) : this.pokemonService.getPokemonListDTO();
+
+    getRequest.subscribe(
       result => {
         this.pokemonList = result.results;
-        console.log(this.pokemonList.length);
+        this.previousBatchURL = result.previous;
+        this.nextBatchURL = result.next;
       }
-      )
-      
-      
-    }
-    
-    ngOnInit() {
-      this.loadPokemonList();    
-    }
+    )
+  }
+
+  ngOnInit() {
+    this.loadPokemonList();
+  }
 
 
 }
