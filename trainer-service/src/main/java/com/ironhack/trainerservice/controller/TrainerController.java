@@ -39,7 +39,7 @@ public class TrainerController implements ITrainerController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Trainer addTrainer(@RequestBody @Valid TrainerDTO trainerDTO) {
-        return trainerService.editTrainer(trainerDTO);
+        return trainerService.addTrainer(trainerDTO);
     }
 
     @PutMapping
