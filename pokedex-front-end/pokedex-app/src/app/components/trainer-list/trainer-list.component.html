@@ -1,1 +1,81 @@
-<p>trainer-list works!</p>
+<div class="trainer-registration">
+
+    <div class="header-container">
+        <h1>Create a trainer</h1>
+    </div>
+
+    <div class="form-container">
+        <mat-grid-list cols="3" rowHeight="100px">
+            <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+
+                <mat-grid-tile>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput formControlName="name" placeholder="Name...">
+                    <mat-error *ngIf="name.invalid && name.touched">
+                        Please enter a valid name.
+                    </mat-error>
+                </mat-form-field>
+                </mat-grid-tile>
+
+                <br>
+
+                <mat-grid-tile>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Hobby</mat-label>
+                    <input type="text" matInput formControlName="hobby" placeholder="Hobby...">
+                    <mat-error *ngIf="hobby.invalid && hobby.touched">
+                        Please enter a valid hobby.
+                    </mat-error>
+                </mat-form-field>
+                </mat-grid-tile>
+
+                <br>
+
+                <mat-grid-tile>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Age</mat-label>
+                    <input type="number" matInput placeholder="Age..." formControlName="age">
+                    <mat-error *ngIf="age.invalid && age.touched"> 
+                        Please enter a valid age            
+                    </mat-error>
+                </mat-form-field>
+                </mat-grid-tile>
+
+                <br>
+
+                <mat-grid-tile>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Photo</mat-label>
+                    <input type="text" matInput formControlName="photo" placeholder="Photo...">
+                    <mat-error *ngIf="photo.invalid && photo.touched">
+                        Please enter a valid photo URL.
+                    </mat-error>
+                </mat-form-field>
+                </mat-grid-tile>
+
+                <br>
+
+                <mat-grid-tile>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Favourite pokemon</mat-label>
+                    <input type="number" matInput placeholder="Favourite Pokemon id..." formControlName="favouritePokemonId">
+                    <mat-error *ngIf="favouritePokemonId.invalid && favouritePokemonId.touched"> 
+                        Please enter a valid pokemon Id.            
+                    </mat-error>
+                </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Create trainer</button>
+                </mat-grid-tile>
+
+            </form>
+        </mat-grid-list>
+    </div>
+
+</div>
+
+<div class="item-wrapper">
+    <app-trainer-list-item *ngFor="let trainer of trainerList" [trainer]="trainer"></app-trainer-list-item>
+</div>
