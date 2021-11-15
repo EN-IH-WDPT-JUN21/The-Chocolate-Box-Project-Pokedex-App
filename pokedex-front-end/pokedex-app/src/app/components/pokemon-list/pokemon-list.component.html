@@ -1,1 +1,18 @@
 <p>pokemon-list works!</p>
+
+<!-- <<div *ngFor="let item of pokemonList">
+    <p>{{item.name }}</p>
+    <p>{{ item.url }}</p>
+</div> -->
+<app-pokemon-list-item *ngFor="let item of pokemonList" [pokemonItem] = "item"></app-pokemon-list-item>
+
+<nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="!previousBatchURL">
+        <a class="page-link" (click)="loadPokemonList(previousBatchURL)" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="loadPokemonList(nextBatchURL)">Next</a>
+      </li>
+    </ul>
+  </nav>

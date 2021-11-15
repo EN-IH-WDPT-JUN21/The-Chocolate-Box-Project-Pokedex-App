@@ -1,3 +1,5 @@
+import { PokemonListDTO, PokemonListDTOResult } from './../../models/pokemon-model';
+import { PokemonService } from './../../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-  constructor() { }
+  pokemonList: PokemonListDTOResult[];
+  previousBatchURL: string;
+  nextBatchURL: string;
 
-  ngOnInit(): void {
+
+  constructor(private pokemonService: PokemonService) {
+    this.pokemonList = [];
+    this.previousBatchURL = '';
+    this.nextBatchURL = '';
   }
+
+  loadPokemonList(url?: string) {
+    let getRequest = (typeof url != 'undefined') ? this.pokemonService.getPokemonListDTO(url) : this.pokemonService.getPokemonListDTO();
+
+    getRequest.subscribe(
+      result => {
+        this.pokemonList = result.results;
+        this.previousBatchURL = result.previous;
+        this.nextBatchURL = result.next;
+      }
+    )
+  }
+
+  ngOnInit() {
+    this.loadPokemonList();
+  }
+
 
 }
