@@ -39,7 +39,7 @@
             
                     <h1> Add Pokemon To The Team</h1>
                     <app-pokemon-search (pokemonNameOutput)="onSearch($event)" (disabled)="disableSearch"></app-pokemon-search>
-                    <button mat-raised-button color="primary"(click)="addPokemon()" [disabled]="pokemonList.length >= 6">Add to slot: </button>
+                    <button mat-raised-button color="primary"(click)="addPokemon()" [disabled]="pokemonList.length >= 6">Add to slot: {{pokemonSlot}} </button>
 
                     <br>              
                 
