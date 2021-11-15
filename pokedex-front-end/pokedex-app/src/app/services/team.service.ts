@@ -22,4 +22,9 @@ export class TeamService {
     return this.http.get<any>(this.teamURL + "/" + id);
   }
 
+  addTeam(team: Object): Observable<Object> {
+    return this.http.post(`${this.teamURL}`, team);
+  }
+
+
 }

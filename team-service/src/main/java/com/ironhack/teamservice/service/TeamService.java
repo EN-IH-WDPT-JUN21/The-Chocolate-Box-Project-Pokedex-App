@@ -43,21 +43,11 @@ public class TeamService implements ITeamService {
         team.setPhoto(teamDTO.getPhoto());
         team.setTrainerId(teamDTO.getTrainerId());
         team.setPokemonId1(teamDTO.getPokemonId1());
-        if(teamDTO.getPokemonId2() != null){
-            team.setPokemonId2(team.getPokemonId2());
-        }
-        if(teamDTO.getPokemonId3() != null){
-            team.setPokemonId3(team.getPokemonId3());
-        }
-        if(teamDTO.getPokemonId4() != null){
-            team.setPokemonId4(team.getPokemonId4());
-        }
-        if(teamDTO.getPokemonId5() != null){
-            team.setPokemonId5(team.getPokemonId5());
-        }
-        if(teamDTO.getPokemonId6() != null){
-            team.setPokemonId6(team.getPokemonId6());
-        }
+        team.setPokemonId2(teamDTO.getPokemonId2());
+        team.setPokemonId3(teamDTO.getPokemonId3());
+        team.setPokemonId4(teamDTO.getPokemonId4());
+        team.setPokemonId5(teamDTO.getPokemonId5());
+        team.setPokemonId6(teamDTO.getPokemonId6());
         return teamRepository.save(team);
     }
 

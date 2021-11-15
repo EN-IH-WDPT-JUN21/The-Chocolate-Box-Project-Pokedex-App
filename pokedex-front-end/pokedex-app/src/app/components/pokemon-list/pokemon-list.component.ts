@@ -22,7 +22,6 @@ export class PokemonListComponent implements OnInit {
 
   loadPokemonList(url?: string) {
     let getRequest = (typeof url != 'undefined') ? this.pokemonService.getPokemonListDTO(url) : this.pokemonService.getPokemonListDTO();
-
     getRequest.subscribe(
       result => {
         this.pokemonList = result.results;

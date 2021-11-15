@@ -1,3 +1,55 @@
+<h1> Teams </h1>
+<button mat-raised-button color="primary" (click)="hideAddButton()">{{addButtonText}}</button>
+<div class="team-registration" *ngIf="addButton">
+    <div class="header-container">
+        <h1>Create a team</h1>
+    </div>
 
+    <div class="form-container">
+    
+            <form [formGroup]="addTeamForm">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>name</mat-label>
+                    <input type="text" matInput formControlName="name" placeholder="name...">
+                    <mat-error *ngIf="name.invalid && name.touched">
+                        Please enter a valid name.
+                    </mat-error>
+                </mat-form-field>
+        
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>photo</mat-label>
+                    <input type="text" matInput placeholder="photo..." formControlName="photo">
+                    <mat-error *ngIf="photo.invalid && photo.touched"> 
+                        Please enter a valid photo url           
+                    </mat-error>
+                </mat-form-field>
+         
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>trainerId</mat-label>
+                    <input type="number" matInput formControlName="trainerId" placeholder="trainerId...">
+                    <mat-error *ngIf="trainerId.invalid && trainerId.touched">
+                        Please enter a valid trainerId
+                    </mat-error>
+                </mat-form-field>
+                <ol *ngIf="pokemonList.length >= 1">
+                    <h3>Pokemon In Team</h3>
+                    <li *ngFor="let pokemon of pokemonList">{{pokemon.name}}</li>
+                    <button mat-raised-button color="primary"(click)="removePokemon()" [hidden]="pokemonList.length <= 0">Remove</button>
+                </ol>
+            
+                    <h1> Add Pokemon To The Team</h1>
+                    <app-pokemon-search (pokemonNameOutput)="onSearch($event)" (disabled)="disableSearch"></app-pokemon-search>
+                    <button mat-raised-button color="primary"(click)="addPokemon()" [disabled]="pokemonList.length >= 6">Add to slot: </button>
 
+                    <br>              
+                
+                <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="addTeamForm.invalid || pokemonList.length <= 0">Create team</button>
+              
+                </form>
+
+        </div>
+    </div>
+    
 <team-list-item *ngFor="let team of teamList" [team]="team"></team-list-item>>
+
+
