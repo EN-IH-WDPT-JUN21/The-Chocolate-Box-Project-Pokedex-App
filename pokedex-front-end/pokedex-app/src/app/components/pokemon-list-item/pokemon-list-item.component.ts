@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { PokemonListDTOResult } from './../../models/pokemon-model';
+import { PokemonService } from './../../services/pokemon.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-list-item',
@@ -7,9 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListItemComponent implements OnInit {
 
-  constructor() { }
+  name: string;
+  pokemonURL: string;
+  @Input() pokemonItem!: PokemonListDTOResult;
+  spriteURL: string;
+  pokemonDTO: string;
+
+  constructor(
+    private pokemonService: PokemonService) {
+    this.spriteURL = "";
+    this.pokemonURL = "";
+    this.pokemonDTO = "";
+    this.name = "";
+   }
 
   ngOnInit(): void {
+    this.name = this.pokemonItem.name
+    this.getPokemonURL();
+    this.getSpriteURL();
+    
   }
+
+  getPokemonURL() {
+    this.pokemonURL = this.pokemonItem.url;
+  }
+
+  getSpriteURL() {
+    this.pokemonService.getPokemonDTO(this.pokemonURL).subscribe(
+      result => {
+        this.spriteURL = result.sprites.front_default;
+      }
+    )
+  }
+
+  
+
+
 
 }
