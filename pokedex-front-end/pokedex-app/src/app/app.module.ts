@@ -25,7 +25,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
 import { MatRippleModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,9 @@ import { MatCardModule } from '@angular/material/card';
     MatGridListModule,
     MatAutocompleteModule,
     MatRippleModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
