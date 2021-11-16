@@ -1,12 +1,6 @@
-<h1> Teams </h1>
+<div class="container">
 <button mat-raised-button color="primary" (click)="hideAddButton()">{{addButtonText}}</button>
-<div class="team-registration" *ngIf="addButton">
-    <div class="header-container">
-        <h1>Create a team</h1>
-    </div>
-
-    <div class="form-container">
-    
+<div class="team-registration" *ngIf="addButton">    
             <form [formGroup]="addTeamForm">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>name</mat-label>
@@ -31,25 +25,43 @@
                         Please enter a valid trainerId
                     </mat-error>
                 </mat-form-field>
-                <ol *ngIf="pokemonList.length >= 1">
-                    <h3>Pokemon In Team</h3>
-                    <li *ngFor="let pokemon of pokemonList">{{pokemon.name}}</li>
-                    <button mat-raised-button color="primary"(click)="removePokemon()" [hidden]="pokemonList.length <= 0">Remove</button>
-                </ol>
-            
-                    <h1> Add Pokemon To The Team</h1>
-                    <app-pokemon-search (pokemonNameOutput)="onSearch($event)" (disabled)="disableSearch"></app-pokemon-search>
-                    <button mat-raised-button color="primary"(click)="addPokemon()" [disabled]="pokemonList.length >= 6">Add to slot: {{pokemonSlot}} </button>
 
-                    <br>              
-                
+                <app-pokemon-search (pokemonNameOutput)="onSearch($event)" (disabled)="disableSearch"></app-pokemon-search>
+                <button mat-raised-button color="primary"(click)="addPokemon()" [disabled]="pokemonList.length >= 6">Add to slot: {{pokemonSlot}} </button>
                 <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="addTeamForm.invalid || pokemonList.length <= 0">Create team</button>
-              
-                </form>
 
-        </div>
+                
+                <h6 *ngIf="pokemonList.length < 1"><em>Please add at least 1 Pokemon to team {{name.value}}</em></h6>
+                <h6 *ngIf="pokemonList.length >= 6"><em>**Maximum Pokemon Reached ({{pokemonList.length}})**</em></h6>   
+                <div *ngIf="pokemonList.length >= 1">
+                    <mat-card  class="pokemon-card" *ngFor="let pokemon of pokemonList">
+                        <mat-card-title-group>
+                            <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
+                            <mat-card-subtitle>TYPE: {{pokemon.types[0].type.name | uppercase}}</mat-card-subtitle>
+                            <img mat-card-sm-image src="{{pokemon.sprites.front_default}}" >
+                        </mat-card-title-group>
+                        <mat-card-content>
+                            <table class="table">
+                                <tr>
+                                    <td>HP:<br> {{pokemon.stats[0].base_stat}}</td>
+                                    <td>ATTACK:<br> {{pokemon.stats[1].base_stat}}</td>
+                                    <td> DEFENCE:<br> {{pokemon.stats[2].base_stat}}</td>
+                                </tr>
+                                <tr>
+                                   <td> SPECIAL-ATTACK:<br> {{pokemon.stats[3].base_stat}}</td>
+                                   <td> SPECIAL-DEFENCE:<br> {{pokemon.stats[4].base_stat}}</td>
+                                   <td> SPEED:<br> {{pokemon.stats[5].base_stat}}</td>
+                                </tr>
+                            </table>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <button mat-raised-button color="primary"(click)="removePokemon()" [hidden]="pokemonList.length <= 0">Remove</button>            
+            </form>
+
     </div>
-    
-<team-list-item *ngFor="let team of teamList" [team]="team"></team-list-item>>
+<div>
+    <team-list-item *ngFor="let team of teamList" [team]="team"></team-list-item>
+</div>    
 
-
+</div>

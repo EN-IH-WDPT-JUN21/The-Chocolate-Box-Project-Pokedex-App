@@ -5,3 +5,21 @@ button {
 .mat-form-field {
     margin: 5px;
 }
+
+.pokemon-card {
+  max-width: 400px;
+  margin-bottom: 8px;
+  background-color: #f5e6ff;
+}
+
+.team-registration {
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
+
+

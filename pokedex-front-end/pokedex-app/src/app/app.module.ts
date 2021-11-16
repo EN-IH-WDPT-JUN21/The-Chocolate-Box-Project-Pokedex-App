@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
+import { MatRippleModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { PokemonSearchComponent } from './components/pokemon-search/pokemon-sear
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatRippleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

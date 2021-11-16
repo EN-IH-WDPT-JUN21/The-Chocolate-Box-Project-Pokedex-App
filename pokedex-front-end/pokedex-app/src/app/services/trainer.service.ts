@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TrainerService {
 
-  readonly baseURL:string = "http://localhost:4200/api/v1/trainers"; // add the readonly attribute
+  readonly baseURL:string = "http://localhost:8200/api/v1/trainers"; // add the readonly attribute
 
   constructor(
     private http:HttpClient
@@ -15,5 +15,9 @@ export class TrainerService {
 
   getTrainer(): Observable<any> {
     return this.http.get<any>(this.baseURL + '/');
+   }
+
+   getTrainerById(id: number):Observable<any> {
+     return this.http.get<any>(this.baseURL + '/' + id);
    }
 }

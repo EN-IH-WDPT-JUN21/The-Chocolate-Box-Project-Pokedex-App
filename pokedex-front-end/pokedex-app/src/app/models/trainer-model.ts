@@ -54,3 +54,13 @@ export class Trainer {
         this._teamId = value;
     }
 }
+
+export interface TrainerDTO {
+     id: number,
+     name: string,
+     age: number,
+     hobby: string,
+     photo: string,
+     favouritePokemonId: number,
+     teamId: number
+}
