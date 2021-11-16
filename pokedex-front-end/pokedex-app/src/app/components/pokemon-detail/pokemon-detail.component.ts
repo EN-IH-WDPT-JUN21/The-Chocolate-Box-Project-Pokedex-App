@@ -43,8 +43,7 @@ export class PokemonDetailComponent implements OnInit {
         abilityName2: this.pokemonDTO.abilities[1].ability.name,
         abilityDetail2: this.pokemonDTO.abilities[1].ability.name,
       }
-    }
-       )
+    })
   }
 
 
