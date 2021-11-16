@@ -150,8 +150,9 @@ export class TeamListComponent implements OnInit {
   removePokemon():void{
     if(this.pokemonSlot >= 1){
     this.pokemonList.splice(this.pokemonSlot - 2, 1);
+    if(this.pokemonSlot > 1){
     this.pokemonSlot--
-    console.log(this.pokemonSlot)
+    }
     }
   }
 
