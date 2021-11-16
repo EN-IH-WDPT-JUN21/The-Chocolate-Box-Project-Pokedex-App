@@ -1,0 +1,23 @@
+.pokemon-item {
+    display: flex;
+    border-style: solid;
+    max-width: 200px;
+}
+
+.pokemon-name {
+    display: flex;
+    align-items:flex-end; 
+    margin:auto;
+  
+  
+}
+
+p {
+    font-family: cursive;
+    align-content: center;
+    padding-top: 15px;;
+}
+
+.pokemon-sprite {
+    
+}

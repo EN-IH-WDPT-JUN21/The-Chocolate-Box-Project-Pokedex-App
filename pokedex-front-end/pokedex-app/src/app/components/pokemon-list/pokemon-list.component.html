@@ -4,4 +4,19 @@
     <p>{{item.name }}</p>
     <p>{{ item.url }}</p>
 </div> -->
-<app-pokemon-list-item *ngFor="let item of pokemonList" [pokemonItem] = "item"></app-pokemon-list-item>
+
+
+
+<div>
+    <div>
+    <app-pokemon-list-item *ngFor="let item of pokemonList | paginate: {
+    itemsPerPage: 7,
+    currentPage: page,
+    totalItems: 0 }" [pokemonItem]="item"></app-pokemon-list-item>
+    <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+</div>
+<div>
+    <app-pokemon-detail></app-pokemon-detail>
+</div>
+</div>
+
