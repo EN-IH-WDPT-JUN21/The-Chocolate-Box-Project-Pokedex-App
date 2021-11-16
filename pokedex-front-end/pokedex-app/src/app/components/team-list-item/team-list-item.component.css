@@ -35,3 +35,13 @@
 .container:hover .detail {
   opacity: 1;
 }
+
+.team-registration {
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
