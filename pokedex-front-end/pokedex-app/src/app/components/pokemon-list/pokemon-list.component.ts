@@ -16,15 +16,17 @@ page: number = 1;
 
 
 
-  constructor(private pokemonService: PokemonService) { 
+  constructor(private pokemonService: PokemonService) {
     this.pokemonList = [];
+    
   }
 
-  loadPokemonList() {
-    this.pokemonService.getPokemonListDTO().subscribe(
+  loadPokemonList(url?: string) {
+    let getRequest = (typeof url != 'undefined') ? this.pokemonService.getPokemonListDTO(url) : this.pokemonService.getPokemonListDTO();
+    getRequest.subscribe(
       result => {
         this.pokemonList = result.results;
-        console.log(this.pokemonList.length);
+        
       }
     )    
   }

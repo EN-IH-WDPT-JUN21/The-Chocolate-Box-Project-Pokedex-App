@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -18,9 +18,19 @@ import { TrainerListComponent } from './components/trainer-list/trainer-list.com
 import { TrainerDetailComponent } from './components/trainer-detail/trainer-detail.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
+import { MatButtonModule } from '@angular/material/button'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
+import { MatRippleModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,18 +44,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TrainerListComponent,
     TrainerDetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PokemonSearchComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
-    
-    
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatAutocompleteModule,
+    MatRippleModule,
+    MatCardModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

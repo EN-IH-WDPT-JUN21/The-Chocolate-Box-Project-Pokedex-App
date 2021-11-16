@@ -89,6 +89,13 @@ export interface PokemonDTO {
             }
         },
     ]
+    types: [
+        {
+            type: {
+                name: string
+            }
+        }
+    ]
 }
 
 

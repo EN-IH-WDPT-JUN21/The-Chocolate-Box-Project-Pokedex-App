@@ -1,1 +1,36 @@
-<p>team-detail works!</p>
+<div class="team-card d-inline-flex p-2 bd-highlight flex-wrap justify-content-around ">
+    <img mat-card-sm-image src="{{team.photo}}">
+    <div>
+      <mat-card-title> {{team.name}}</mat-card-title>
+      <mat-card-subtitle> 
+        Trainer: {{trainer.name}}
+      <img class="trainer-img" src="{{trainer.photo}}" alt=""> </mat-card-subtitle>
+    </div>
+  <mat-card-content>
+    <div class="d-inline-flex p-2 bd-highlight flex-wrap justify-content-around">
+    <mat-card  class="pokemon-card" *ngFor="let pokemon of pokemonList">
+                        <mat-card-title-group>
+                            <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
+                            <mat-card-subtitle>TYPE: {{pokemon.types[0].type.name | uppercase}}</mat-card-subtitle>
+                            <img mat-card-sm-image src="{{pokemon.sprites.front_default}}" >
+                        </mat-card-title-group>
+                        <mat-card-content>
+                          <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td>HP:<br> {{pokemon.stats[0].base_stat}}</td>
+                                    <td>ATTACK:<br> {{pokemon.stats[1].base_stat}}</td>
+                                    <td> DEFENCE:<br> {{pokemon.stats[2].base_stat}}</td>
+                                </tr>
+                                <tr>
+                                   <td> SPECIAL-ATTACK:<br> {{pokemon.stats[3].base_stat}}</td>
+                                   <td> SPECIAL-DEFENCE:<br> {{pokemon.stats[4].base_stat}}</td>
+                                   <td> SPEED:<br> {{pokemon.stats[5].base_stat}}</td>
+                                </tr>
+                            </table>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                    </div>
+  </mat-card-content>
+</div>
