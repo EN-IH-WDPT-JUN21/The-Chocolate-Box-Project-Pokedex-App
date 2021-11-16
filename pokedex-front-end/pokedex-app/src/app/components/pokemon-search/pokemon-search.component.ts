@@ -49,7 +49,8 @@ export class PokemonSearchComponent implements OnInit {
 
   private _filter(): PokemonListDTOResult[] {
     const filterValue = this.pokemonName.value;
-    return this.pokemonList.filter(pokemon => pokemon.name.includes(filterValue));
+    return this.pokemonList
+    .filter(pokemon => pokemon.name.includes(filterValue));
   }
 
 }

@@ -1,13 +1,21 @@
-<img src="{{pokemon.imageUrl}}" alt=""/>
-<p>{{pokemon.id}}</p>
-<p>{{pokemon.name}}</p>
-<p>{{pokemon.type}}</p>
-<p>{{pokemon.hp}}</p>
-<p>{{pokemon.attack}}</p>
-<p>{{pokemon.defence}}</p>
-<p>{{pokemon.specialAttack}}</p>
-<p>{{pokemon.specialDefence}}</p>
-<p>{{pokemon.speed}}</p>
-<p>{{pokemon.abilityName1}}</p>
-<p>{{pokemon.abilityName2}}</p>
-
+<mat-card  class="pokemon-card">
+                        <mat-card-title-group>
+                            <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
+                            <mat-card-subtitle>TYPE: {{pokemonDTO.types[0].type.name | uppercase}}</mat-card-subtitle>
+                            <img mat-card-sm-image src="{{pokemonDTO.sprites.front_default}}" >
+                        </mat-card-title-group>
+                        <mat-card-content>
+                            <table class="table">
+                                <tr>
+                                    <td>HP:<br> {{pokemonDTO.stats[0].base_stat}}</td>
+                                    <td>ATTACK:<br> {{pokemonDTO.stats[1].base_stat}}</td>
+                                    <td> DEFENCE:<br> {{pokemonDTO.stats[2].base_stat}}</td>
+                                </tr>
+                                <tr>
+                                   <td> SPECIAL-ATTACK:<br> {{pokemonDTO.stats[3].base_stat}}</td>
+                                   <td> SPECIAL-DEFENCE:<br> {{pokemonDTO.stats[4].base_stat}}</td>
+                                   <td> SPEED:<br> {{pokemonDTO.stats[5].base_stat}}</td>
+                                </tr>
+                            </table>
+                        </mat-card-content>
+                    </mat-card>

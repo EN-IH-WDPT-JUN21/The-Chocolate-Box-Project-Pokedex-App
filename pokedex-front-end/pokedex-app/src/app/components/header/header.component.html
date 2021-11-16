@@ -1,22 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark align-top" style="background-color: #c94c4c; color: #ffff00">
+<nav mat-tab-nav-bar style="background-color: #c94c4c;">
   <a class="navbar-brand" routerLink="/pokemon"><img class="nav-bar-logo" src="../../../assets/pokemonLogo.png " alt=""></a>
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page"  routerLink="/pokemon" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Pokemon</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/teams" routerLinkActive="active">Teams</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/trainers" routerLinkActive="active">Trainers</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <a mat-tab-link style="color: rgb(251, 255, 0);" routerLink="/pokemon" > Pokemon </a>
+  <a mat-tab-link style="color: rgb(251, 255, 0);" routerLink="/teams" > Teams </a>
+  <a mat-tab-link style="color: rgb(251, 255, 0);" routerLink="/trainers"> Trainers </a>
 </nav>
-
