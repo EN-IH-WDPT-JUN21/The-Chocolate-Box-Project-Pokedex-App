@@ -8,20 +8,31 @@ import { Trainer } from 'src/app/models/trainer-model';
 })
 export class TrainerListItemComponent implements OnInit {
 
+  isButtonClicked=false;
+  panelOpenState = false;
+
   @Input()
   trainer!: Trainer;
 
   @Output() trainerRemoved: EventEmitter<number> = new EventEmitter();
 
-  @Input() position!:number;
+  @Input() trainerId!:number;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  removeTrainer(position:number):void {
-    this.trainerRemoved.emit(position);
+  deleteTrainer(trainerId:number):void {
+    this.trainerRemoved.emit(trainerId);
+  }
+
+  trainerDetails(trainerId: number){
+    if(this.isButtonClicked) {
+      this.isButtonClicked=false;
+    } else {
+      this.isButtonClicked=true;
+    }
   }
 
 }
