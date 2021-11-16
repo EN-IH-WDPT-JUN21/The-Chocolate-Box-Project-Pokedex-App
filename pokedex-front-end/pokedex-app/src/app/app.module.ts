@@ -20,7 +20,11 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatButtonModule } from '@angular/material/button'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {MatGridListModule} from '@angular/material/grid-list'
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
+import { MatRippleModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import {MatGridListModule} from '@angular/material/grid-list'
     TrainerListComponent,
     TrainerDetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PokemonSearchComponent
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,10 @@ import {MatGridListModule} from '@angular/material/grid-list'
     MatButtonModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatAutocompleteModule,
+    MatRippleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

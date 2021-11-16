@@ -1,0 +1,10 @@
+.pokemon-card {
+  max-width: 30%;
+  min-width: 250px;
+  margin: 8px;
+  background-color: #f5e6ff;
+}
+
+.trainer-img {
+    height: 25px;
+}

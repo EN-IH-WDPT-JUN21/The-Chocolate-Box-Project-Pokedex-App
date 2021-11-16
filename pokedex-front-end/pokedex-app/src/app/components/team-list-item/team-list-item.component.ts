@@ -15,13 +15,16 @@ export class TeamListItemComponent implements OnInit {
   @Input()
   team!:TeamDTO;
 
+  rippleColor:string = "eea29a"
+
+  backUpImage: string = "https://tellusdaily.com/wp-content/uploads/2021/02/60.jpeg";
   
 
-  constructor() {
-    
-   }
+  constructor() {}
 
   ngOnInit(): void {
   }
   
+  
+
 }
