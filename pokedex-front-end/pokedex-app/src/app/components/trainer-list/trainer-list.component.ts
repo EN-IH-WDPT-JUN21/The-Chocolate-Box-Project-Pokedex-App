@@ -1,6 +1,6 @@
-import { Trainer } from 'src/app/models/trainer-model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Trainer } from 'src/app/models/trainer-model';
 
 @Component({
   selector: 'app-trainer-list',

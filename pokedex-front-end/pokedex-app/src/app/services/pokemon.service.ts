@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class PokemonService {
 
 
-  readonly pokemonListURL: string = "https://pokeapi.co/api/v2/pokemon"
+  readonly pokemonListURL: string = "https://pokeapi.co/api/v2/pokemon?limit=898"
 
   constructor(
     private http: HttpClient

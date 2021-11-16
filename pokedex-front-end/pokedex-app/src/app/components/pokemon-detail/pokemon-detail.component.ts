@@ -1,3 +1,4 @@
+import { PokemonListDTOResult } from './../../models/pokemon-model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PokemonService } from './../../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { Pokemon, PokemonDTO } from 'src/app/models/pokemon-model';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  pokemonDTO!: PokemonDTO;
+  pokemonListDTOResult!: PokemonListDTOResult;
   pokemon!:Pokemon;
   result:any;
 
