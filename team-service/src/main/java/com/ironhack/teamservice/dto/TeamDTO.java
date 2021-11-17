@@ -20,6 +20,7 @@ public class TeamDTO {
     private String photo;
     @NotNull
     private Long trainerId;
+    @NotNull
     private Integer pokemonId1;
     private Integer pokemonId2;
     private Integer pokemonId3;

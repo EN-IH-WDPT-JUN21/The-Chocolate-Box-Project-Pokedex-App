@@ -2,6 +2,10 @@ button {
     margin: 5px;
 }
 
+button:hover {
+  opacity: 75%;
+}
+
 .mat-form-field {
     margin: 5px;
 }

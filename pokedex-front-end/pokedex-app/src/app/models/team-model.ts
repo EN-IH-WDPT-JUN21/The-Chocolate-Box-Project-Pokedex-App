@@ -83,9 +83,9 @@ export interface TeamDTO {
     photo:string;
     trainerId:number;
     pokemonId1:number;
-    pokemonId2:number;
-    pokemonId3:number;
-    pokemonId4:number;
-    pokemonId5:number;
-    pokemonId6:number;
+    pokemonId2:any;
+    pokemonId3:any;
+    pokemonId4:any;
+    pokemonId5:any;
+    pokemonId6:any;
 }
