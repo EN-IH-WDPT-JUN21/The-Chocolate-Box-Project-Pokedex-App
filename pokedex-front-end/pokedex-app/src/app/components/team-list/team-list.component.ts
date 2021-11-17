@@ -40,6 +40,7 @@ export class TeamListComponent implements OnInit {
   validPokemon: boolean = false;
   pokemonSlot: number = 1;
   disableSearch: boolean = true;
+  searchLabel:string = "Search Pokemon"
   
 
   constructor(private teamService: TeamService,
