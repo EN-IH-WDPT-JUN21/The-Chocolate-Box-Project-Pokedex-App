@@ -9,7 +9,7 @@ import { Pokemon, PokemonDTO } from 'src/app/models/pokemon-model';
   styleUrls: ['./pokemon-detail.component.css']
 })
 export class PokemonDetailComponent implements OnInit {
-
+  
   pokemonDTO!: PokemonDTO;
   pokemon!:Pokemon;
   result:any;

@@ -15,9 +15,11 @@ export class PokemonSearchComponent implements OnInit {
   pokemonList:PokemonListDTOResult[];
   pokemonSearch: FormGroup;
   pokemonName: FormControl;
+  
   filteredOptions!: Observable<PokemonListDTOResult[]>;
 
   @Output() pokemonNameOutput: EventEmitter<string> = new EventEmitter();
+  @Output() addPokemonOutput: EventEmitter<string> = new EventEmitter();
 
   constructor(private pokemonService:PokemonService) {
     this.pokemonList = []
@@ -47,10 +49,15 @@ export class PokemonSearchComponent implements OnInit {
       this.pokemonNameOutput.emit(this.pokemonName.value)
     }
 
+    addPokemon(): void {
+      this.addPokemonOutput.emit(this.pokemonName.value)
+    }
+
   private _filter(): PokemonListDTOResult[] {
     const filterValue = this.pokemonName.value;
     return this.pokemonList
     .filter(pokemon => pokemon.name.includes(filterValue));
   }
+
 
 }

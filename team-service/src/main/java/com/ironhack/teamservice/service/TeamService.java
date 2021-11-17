@@ -54,33 +54,15 @@ public class TeamService implements ITeamService {
     @Override
     public Team editTeam(TeamDTO teamDTO){
         Team team = findById(teamDTO.getId());
-        if(teamDTO.getName() != null) {
             team.setName(teamDTO.getName());
-        }
-        if(teamDTO.getPhoto() != null) {
             team.setPhoto(teamDTO.getPhoto());
-        }
-        if(teamDTO.getTrainerId() != null) {
             team.setTrainerId(teamDTO.getTrainerId());
-        }
-        if(teamDTO.getPokemonId1() != null) {
             team.setPokemonId1(teamDTO.getPokemonId1());
-        }
-        if(teamDTO.getPokemonId2() != null){
             team.setPokemonId2(teamDTO.getPokemonId2());
-        }
-        if(teamDTO.getPokemonId3() != null){
             team.setPokemonId3(teamDTO.getPokemonId3());
-        }
-        if(teamDTO.getPokemonId4() != null){
             team.setPokemonId4(teamDTO.getPokemonId4());
-        }
-        if(teamDTO.getPokemonId5() != null){
             team.setPokemonId5(teamDTO.getPokemonId5());
-        }
-        if(teamDTO.getPokemonId6() != null){
             team.setPokemonId6(teamDTO.getPokemonId6());
-        }
         return teamRepository.save(team);
     }
 }

@@ -1,3 +1,4 @@
+import { TeamDTO } from './../models/team-model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -26,5 +27,11 @@ export class TeamService {
     return this.http.post(`${this.teamURL}`, team);
   }
 
+  deleteTeam(id: number): Observable<any> {
+    return this.http.delete(this.teamURL + "/" + id)
+  }
 
+  editTeam(teamDTO: TeamDTO): Observable<any> {
+    return this.http.put(`${this.teamURL + "/" + teamDTO.id + "/edit"}`, teamDTO)
+  }
 }

@@ -7,7 +7,8 @@
                 placeholder="Pokemon Name..." 
                 formControlName="pokemonName" 
                 [matAutocomplete]="auto"
-                (keyup)="sendName()">
+                (keyup)="sendName()"
+                (keyup.enter)="addPokemon()">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
           <mat-option *ngFor="let pokemon of filteredOptions | async" [value]="pokemon.name" (click)="sendName()">
             {{pokemon.name}}
