@@ -9,11 +9,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="team-service" />
         <module name="discovery-service" />
+        <module name="gateway-service" />
         <module name="trainer-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="discovery-service" target="17" />
+      <module name="gateway-service" target="17" />
       <module name="team-service" target="17" />
       <module name="trainer-service" target="17" />
     </bytecodeTargetLevel>
@@ -21,6 +23,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="discovery-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="team-service" options="-parameters" />
       <module name="trainer-service" options="-parameters" />
     </option>

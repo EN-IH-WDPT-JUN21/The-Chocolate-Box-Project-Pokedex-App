@@ -8,7 +8,7 @@ import { Trainer } from '../models/trainer-model';
 })
 export class TrainerService {
 
-  readonly baseUrl:string = "http://localhost:8200/api/v1/trainers"; // add the readonly attribute
+  readonly baseUrl:string = "http://localhost:8000/api/v1/trainers"; // add the readonly attribute
 
   constructor(
     private http:HttpClient
