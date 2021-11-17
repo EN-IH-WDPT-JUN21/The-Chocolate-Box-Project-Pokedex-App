@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class TeamService {
 
-  readonly teamURL: string = "http://localhost:8100/api/v1/teams"
+  readonly teamURL: string = "http://localhost:8000/api/v1/teams"
 
   constructor(
     private http: HttpClient

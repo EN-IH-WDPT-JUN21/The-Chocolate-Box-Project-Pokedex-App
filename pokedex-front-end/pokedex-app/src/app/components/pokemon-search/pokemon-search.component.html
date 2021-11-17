@@ -1,7 +1,7 @@
 
     <form (ngSubmit)="sendName()" [formGroup]="pokemonSearch">
      <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Search Pokemon</mat-label>
+                <mat-label>{{label}}</mat-label>
                 <input type="text" 
                 matInput 
                 placeholder="Pokemon Name..." 
