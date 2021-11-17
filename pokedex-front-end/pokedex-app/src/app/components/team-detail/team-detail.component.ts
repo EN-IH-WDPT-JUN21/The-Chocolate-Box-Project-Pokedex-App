@@ -23,6 +23,7 @@ export class TeamDetailComponent implements OnInit {
   validPokemon:boolean = false;
   validTrainers: boolean = false;
   validTrainer: boolean = false;
+  searchLabel:string = "Search Pokemon"
 
   // statButtonText: string = "Show Stats";
   // showStats:boolean = false;
