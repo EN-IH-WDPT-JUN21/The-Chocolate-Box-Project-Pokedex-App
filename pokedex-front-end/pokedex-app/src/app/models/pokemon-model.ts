@@ -88,7 +88,7 @@ export interface PokemonDTO {
                 name: string //speed
             }
         },
-    ]
+    ],
     types: [
         {
             type: {

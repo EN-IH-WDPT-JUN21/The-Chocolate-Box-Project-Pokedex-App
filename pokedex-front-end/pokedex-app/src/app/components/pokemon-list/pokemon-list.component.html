@@ -9,14 +9,14 @@
 
 <div>
     <div>
-    <app-pokemon-list-item *ngFor="let item of pokemonList | paginate: {
+    <app-pokemon-list-item *ngFor="let i = index; let item of pokemonList | paginate: {
     itemsPerPage: 7,
     currentPage: page,
-    totalItems: 0 }" [pokemonItem]="item"></app-pokemon-list-item>
+    totalItems: 0 }" [pokemonItem]="item" (click)="showDetail(item)"></app-pokemon-list-item>
     <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
 </div>
 <div>
-    <!-- <app-pokemon-detail></app-pokemon-detail> -->
+    <app-pokemon-detail [pokemon]="pokemon"></app-pokemon-detail>
 </div>
 </div>
 

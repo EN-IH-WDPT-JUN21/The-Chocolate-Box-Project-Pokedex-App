@@ -1,21 +1,21 @@
-<mat-card  class="pokemon-card">
-                        <mat-card-title-group>
-                            <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
-                            <mat-card-subtitle>TYPE: {{pokemonDTO.types[0].type.name | uppercase}}</mat-card-subtitle>
-                            <img mat-card-sm-image src="{{pokemonDTO.sprites.front_default}}" >
-                        </mat-card-title-group>
-                        <mat-card-content>
-                            <table class="table">
-                                <tr>
-                                    <td>HP:<br> {{pokemonDTO.stats[0].base_stat}}</td>
-                                    <td>ATTACK:<br> {{pokemonDTO.stats[1].base_stat}}</td>
-                                    <td> DEFENCE:<br> {{pokemonDTO.stats[2].base_stat}}</td>
-                                </tr>
-                                <tr>
-                                   <td> SPECIAL-ATTACK:<br> {{pokemonDTO.stats[3].base_stat}}</td>
-                                   <td> SPECIAL-DEFENCE:<br> {{pokemonDTO.stats[4].base_stat}}</td>
-                                   <td> SPEED:<br> {{pokemonDTO.stats[5].base_stat}}</td>
-                                </tr>
-                            </table>
-                        </mat-card-content>
-                    </mat-card>
+<mat-card class="pokemon-card">
+  <mat-card-title-group>
+    <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
+    <mat-card-subtitle>TYPE: {{pokemon.type | uppercase}}</mat-card-subtitle>
+    <img mat-card-sm-image src="{{pokemon.imageUrl}}">
+  </mat-card-title-group>
+  <mat-card-content>
+    <table class="table">
+      <tr>
+        <td>HP:<br> {{pokemon.hp}}</td>
+        <td>ATTACK:<br> {{pokemon.attack}}</td>
+        <td> DEFENCE:<br> {{pokemon.defence}}</td>
+      </tr>
+      <tr>
+        <td> SPECIAL-ATTACK:<br> {{pokemon.specialAttack}}</td>
+        <td> SPECIAL-DEFENCE:<br> {{pokemon.specialDefence}}</td>
+        <td> SPEED:<br> {{pokemon.speed}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

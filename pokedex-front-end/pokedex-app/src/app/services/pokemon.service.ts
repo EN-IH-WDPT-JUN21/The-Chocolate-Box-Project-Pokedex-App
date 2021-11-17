@@ -31,6 +31,10 @@ getPokemonDTObyName(pokemonName:string): Observable<any> {
     return this.http.get<any>(this.pokemonListURL + "/" + pokemonId)
   }
 
+  getPokemonDTObyURL(url: string): Observable<any> {
+    return this.http.get<any>(url);
+  }
+
 getAllPokemonNames(): Observable<any> {
   return this.http.get<any>("https://pokeapi.co/api/v2/pokemon?limit=898")
 }
@@ -43,4 +47,9 @@ getIdFromPokemonName(pokemonName: string):number {
     )
     return pokemonId;
 }
+
+getAbilityByURL(url: string): Observable<any> {
+  return this.http.get<any>(url);
+}
+
 }
