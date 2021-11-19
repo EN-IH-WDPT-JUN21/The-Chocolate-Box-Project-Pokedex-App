@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class PokemonService {
 
 
-  readonly pokemonListURL: string = "https://pokeapi.co/api/v2/pokemon?limit=898"
+  readonly pokemonListURL: string = "https://pokeapi.co/api/v2/pokemon?limit=904"
 
   constructor(
     private http: HttpClient
@@ -27,8 +27,10 @@ getPokemonDTObyName(pokemonName:string): Observable<any> {
   return this.http.get<any>(this.pokemonListURL + "/" + pokemonName)
 }
 
-  getPokemonDTObyId(pokemonId: number): Observable<any> {
+    getPokemonDTObyId(pokemonId: number): Observable<any> {
     return this.http.get<any>(this.pokemonListURL + "/" + pokemonId)
+    // let data = await this.httpClient.get<any>(this.url).toPromise();
+
   }
 
   getPokemonDTObyURL(url: string): Observable<any> {
@@ -36,7 +38,7 @@ getPokemonDTObyName(pokemonName:string): Observable<any> {
   }
 
 getAllPokemonNames(): Observable<any> {
-  return this.http.get<any>("https://pokeapi.co/api/v2/pokemon?limit=898")
+  return this.http.get<any>("https://pokeapi.co/api/v2/pokemon?limit=904")
 }
 
 getIdFromPokemonName(pokemonName: string):number {

@@ -1,5 +1,6 @@
 .pokemon-card {
-  max-width: 400px;
-  margin-bottom: 8px;
+  width: 600px;
+  height: 460px;
+  margin: 8px;
   background-color: #ff00001f;
 }

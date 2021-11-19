@@ -1,16 +1,8 @@
-<p>pokemon-list works!</p>
 
-<!-- <<div *ngFor="let item of pokemonList">
-    <p>{{item.name }}</p>
-    <p>{{ item.url }}</p>
-</div> -->
-
-
-
-<div>
+<div class="pokedex-view">
     <div>
     <app-pokemon-list-item *ngFor="let i = index; let item of pokemonList | paginate: {
-    itemsPerPage: 7,
+    itemsPerPage: 8,
     currentPage: page,
     totalItems: 0 }" [pokemonItem]="item" (click)="showDetail(item)"></app-pokemon-list-item>
     <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>

@@ -13,8 +13,97 @@ export class PokemonListComponent implements OnInit {
 
 pokemonList: PokemonListDTOResult[];
 pokemonListDTOResult!: PokemonListDTOResult;
-pokemonDTO: PokemonDTO;
-pokemon: Pokemon;
+pokemonDTO: PokemonDTO = {
+  id: 0,
+  name: '',
+  abilities: [
+      {
+          ability: {
+              name: '',
+              url: ''  // URL of the ability, needed to get the detail
+          }
+      },
+      {
+          ability: {
+              name: '',
+              url: ''  // URL of the ability, needed to get the detail
+          }
+      }
+  ],
+  sprites: {
+      front_default: '',
+      other: {
+          dream_world: {
+              front_default: ''
+          },
+          home: {
+            front_default: ''
+        }
+      }
+  },
+  stats: [  // ArrayLength = 6
+      {
+          base_stat: 0,
+          stat: {
+              name: '' //hp
+          }
+      },
+      {
+          base_stat: 0,
+          stat: {
+              name: '' //attack
+          }
+      },
+      {
+          base_stat: 0,
+          stat: {
+              name: '' //defense
+          }
+      },
+      {
+          base_stat: 0,
+          stat: {
+              name: '' //special-attack
+          }
+      },
+      {
+          base_stat: 0,
+          stat: {
+              name: '' //special-defense
+          }
+      },
+      {
+          base_stat: 0,
+          stat: {
+              name: '' //speed
+          }
+      },
+  ],
+  types: [
+      {
+          type: {
+              name: 'string'
+          }
+      }
+  ]
+};
+pokemon: Pokemon = {
+  id: 0,
+  name: 'NAME',
+  type: '',
+  spriteUrl: '../../../assets/pokeball.png',
+  imageUrl: '../../../assets/pokeball.png',
+  hp: 0,
+  attack: 0,
+  defence: 0,
+  specialAttack: 0,
+  specialDefence: 0,
+  speed: 0,
+  abilityName1: '',
+  abilityDetail1: '',
+  abilityName2: '',
+  abilityDetail2: ''
+};
 ability1Description: string = '';
 ability2Description: string = '';
 
@@ -26,109 +115,14 @@ page: number = 1;
   constructor(private pokemonService: PokemonService) {
     this.pokemonList = [];
 
-    this.pokemonDTO = {
-      id: 0,
-      name: '',
-      abilities: [
-          {
-              ability: {
-                  name: '',
-                  url: ''  // URL of the ability, needed to get the detail
-              }
-          },
-          {
-              ability: {
-                  name: '',
-                  url: ''  // URL of the ability, needed to get the detail
-              }
-          }
-      ],
-      sprites: {
-          front_default: '',
-          other: {
-              dream_world: {
-                  front_default: ''
-              }
-          }
-      },
-      stats: [  // ArrayLength = 6
-          {
-              base_stat: 0,
-              stat: {
-                  name: '' //hp
-              }
-          },
-          {
-              base_stat: 0,
-              stat: {
-                  name: '' //attack
-              }
-          },
-          {
-              base_stat: 0,
-              stat: {
-                  name: '' //defense
-              }
-          },
-          {
-              base_stat: 0,
-              stat: {
-                  name: '' //special-attack
-              }
-          },
-          {
-              base_stat: 0,
-              stat: {
-                  name: '' //special-defense
-              }
-          },
-          {
-              base_stat: 0,
-              stat: {
-                  name: '' //speed
-              }
-          },
-      ],
-      types: [
-          {
-              type: {
-                  name: 'string'
-              }
-          }
-      ]
   }
 
-  this.pokemon = {
-    id: 0,
-    name: '',
-    type: '',
-    spriteUrl: '',
-    imageUrl: '',
-    hp: 0,
-    attack: 0,
-    defence: 0,
-    specialAttack: 0,
-    specialDefence: 0,
-    speed: 0,
-    abilityName1: '',
-    abilityDetail1: '',
-    abilityName2: '',
-    abilityDetail2: ''
-}
-   
+
   
-
+  ngOnInit() {
+    this.loadPokemonList();
+    
   }
-
-  // loadPokemonList(url?: string) {
-  //   let getRequest = (typeof url != 'undefined') ? this.pokemonService.getPokemonListDTO(url) : this.pokemonService.getPokemonListDTO();
-  //   getRequest.subscribe(
-  //     result => {
-  //       this.pokemonList = result.results;
-        
-  //     }
-  //   )    
-  // }
 
   loadPokemonList() {
     this.pokemonService.getPokemonListDTO().subscribe(
@@ -138,51 +132,64 @@ page: number = 1;
       }
     )    
   }
-  
-  ngOnInit() {
-      this.loadPokemonList();
-  
-  }
 
   handlePageChange(event: number): void {
     this.page = event;
   }
 
-  showDetail(item: PokemonListDTOResult): void {
+    async showDetail(item: PokemonListDTOResult) {
     this.pokemonListDTOResult = item;
     console.log(this.pokemonListDTOResult.name);
-    this.getPokemonDTO();
-    this.getAbility1Description();
-    this.getAbility2Description();
+
+    await this.getPokemonDTO();
+    await this.getAbility1Description();
+    await this.getAbility2Description();
     this.createPokemon();
     console.log(this.pokemon.name +" from showDetail in List after button click")
 
   }
 
-  getPokemonDTO(): void {
-    this.pokemonService.getPokemonDTObyURL(this.pokemonListDTOResult.url).subscribe(result => {
-      this.pokemonDTO = result;
-    })
+
+  async getPokemonDTO() {
+    console.log(this.pokemonListDTOResult.url)
+    this.pokemonDTO = await this.pokemonService.getPokemonDTObyURL(this.pokemonListDTOResult.url).toPromise();
     console.log("this pokemonDTO is " + this.pokemonDTO.name)
+    console.log("and abilities length: " + this.pokemonDTO.abilities.length)
   }
 
-  getAbility1Description(): void {
-    this.pokemonService.getAbilityByURL(this.pokemonDTO.abilities[0].ability.url).subscribe(result => {
-      this.ability1Description = result.effect_entries[1].effect
-    })
+
+
+  async getAbility1Description() {
+    console.log("The URL for ability 1 is " + this.pokemonDTO.abilities[0].ability.url)
+    const result = await this.pokemonService.getAbilityByURL(this.pokemonDTO.abilities[0].ability.url).toPromise();
+    this.ability1Description = result.flavor_text_entries[0].flavor_text;
+    console.log(this.ability1Description)
+    
   }
 
-  getAbility2Description(): void {
-    this.pokemonService.getAbilityByURL(this.pokemonDTO.abilities[1].ability.url).subscribe(result => {
-      this.ability1Description = result.effect_entries[1].effect
-    })
+
+
+  async getAbility2Description() {
+    // console.log(this.pokemonDTO.abilities[1].ability.url)
+    if (this.pokemonDTO.abilities.length > 1) {
+    console.log("The URL for ability 2 is " + this.pokemonDTO.abilities[1].ability.url)
+    const result = await this.pokemonService.getAbilityByURL(this.pokemonDTO.abilities[1].ability.url).toPromise();
+    
+    this.ability2Description = result.flavor_text_entries[0].flavor_text;
+    } else {
+      this.ability2Description = "No Second Ability"
+    }
+    
+    console.log(this.ability2Description)
+    
   }
+
 
   createPokemon(): void {
     this.pokemon.id = this.pokemonDTO.id;
     this.pokemon.name = this.pokemonDTO.name;
     this.pokemon.type = this.pokemonDTO.types[0].type.name;
-    this.pokemon.imageUrl = this.pokemonDTO.sprites.other.dream_world.front_default;
+    this.pokemon.imageUrl = this.pokemonDTO.sprites.other.home.front_default;
     this.pokemon.hp = this.pokemonDTO.stats[0].base_stat;
     this.pokemon.attack = this.pokemonDTO.stats[1].base_stat;
     this.pokemon.defence = this.pokemonDTO.stats[2].base_stat;
@@ -191,7 +198,9 @@ page: number = 1;
     this.pokemon.speed = this.pokemonDTO.stats[5].base_stat;
     this.pokemon.abilityName1 = this.pokemonDTO.abilities[0].ability.name;
     this.pokemon.abilityDetail1 = this.ability1Description;
+    if (this.pokemonDTO.abilities.length > 1) {
     this.pokemon.abilityName2 = this.pokemonDTO.abilities[1].ability.name;
+    } else { this.pokemon.abilityName2 = "No Second Ability"}
     this.pokemon.abilityDetail2 = this.ability2Description;
   }
 
