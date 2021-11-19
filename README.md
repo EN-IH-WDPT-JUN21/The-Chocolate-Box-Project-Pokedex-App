@@ -63,7 +63,7 @@ Run Each Microservice Application
 
 <b>· Use case diagram : </b>
 
-<img src="pokemon app.png" />
+<img src="pokemon-app.png" />
 
 <b>· Microservices Relations Diagram : </b>
 
