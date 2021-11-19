@@ -49,17 +49,17 @@ export class PokemonSearchComponent implements OnInit {
     }
 
     sendName():void {
-      this.pokemonNameOutput.emit(this.pokemonName.value)
+      this.pokemonNameOutput.emit(this.pokemonName.value.toLowerCase().trim())
     }
 
     addPokemon(): void {
-      this.addPokemonOutput.emit(this.pokemonName.value)
+      this.addPokemonOutput.emit(this.pokemonName.value.toLowerCase().trim())
     }
 
   private _filter(): PokemonListDTOResult[] {
-    const filterValue = this.pokemonName.value;
+    const filterValue:string = this.pokemonName.value.toLowerCase().trim();
     return this.pokemonList
-    .filter(pokemon => pokemon.name.includes(filterValue));
+    .filter(pokemon => pokemon.name.toLowerCase().includes(filterValue));
   }
 
 
