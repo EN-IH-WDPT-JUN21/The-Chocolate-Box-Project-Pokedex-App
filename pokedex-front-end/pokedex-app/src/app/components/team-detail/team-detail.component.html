@@ -32,6 +32,7 @@
 
       <!-- Pokemon Search Box -->
       <h6 *ngIf="pokemonList.length > 5"><em>max pokemon in team reached</em></h6>
+      
       <app-pokemon-search (pokemonNameOutput)="onSearch($event)" (addPokemonOutput)="addPokemon()" [label]="searchLabel"></app-pokemon-search>
       <button mat-raised-button color="warn" (click)="addPokemon()"
         [disabled]="pokemonList.length >= 6 || !validPokemon || !validTrainers && !validTrainer">Add</button>

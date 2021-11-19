@@ -26,6 +26,12 @@
                         {{trainerItem.name}}
                     </mat-option>
                 </mat-select>
+                <mat-error *ngIf="trainerId.invalid && trainerId.touched && trainerList.length > 0">
+                    Please Choose A Trainer
+                </mat-error>
+                <mat-error *ngIf="trainerList.length <= 0">
+                    No Valid Trainers - Create One To Continue
+                </mat-error>
             </mat-form-field>
 
             <!-- Pokemon Search Box -->

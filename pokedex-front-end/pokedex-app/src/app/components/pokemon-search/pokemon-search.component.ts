@@ -62,5 +62,4 @@ export class PokemonSearchComponent implements OnInit {
     .filter(pokemon => pokemon.name.toLowerCase().includes(filterValue));
   }
 
-
 }
