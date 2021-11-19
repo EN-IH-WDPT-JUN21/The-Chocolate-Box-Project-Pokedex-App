@@ -28,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ForrestComponent } from '../environments/forrest/forrest.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     TrainerDetailComponent,
     HeaderComponent,
     FooterComponent,
-    PokemonSearchComponent
+    PokemonSearchComponent,
+    ForrestComponent
 
   ],
   imports: [

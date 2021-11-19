@@ -164,4 +164,8 @@ export class TeamDetailComponent implements OnInit {
     }
   }
 
+  goBack():void{
+    this.router.navigate(['teams'])
+  }
+
 }

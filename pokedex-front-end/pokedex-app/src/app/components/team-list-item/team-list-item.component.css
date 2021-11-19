@@ -49,3 +49,7 @@
 .team-registration:hover {
   background-color: #ff00001f;
 }
+
+.router-link-active {
+  cursor: pointer;
+}

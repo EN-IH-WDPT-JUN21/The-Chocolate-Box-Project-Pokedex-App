@@ -1,5 +1,7 @@
 <div class="team-card" >
-
+  <br>
+  <button mat-raised-button color="warn" (click)="goBack()">Go Back</button>
+  <br>
   <!-- Title Section -->
   <div class="d-flex align-items-top title">
     <img class="title" mat-card-sm-image src="{{team.photo}}">
@@ -8,8 +10,8 @@
         <h6 *ngIf="!validTrainers"><em>Please Create A Trainer Before Editing Team</em></h6>
         <mat-card-subtitle *ngIf="validTrainers">
           <h6 *ngIf="!validTrainer"><em>Please Assign A Trainer</em></h6>
-          <select class="form-select title" [(ngModel)]="trainer" (ngModelChange)="selectTrainer($event)">
-            <option selected [ngValue]="trainer" *ngIf="validTrainer">Trainer: {{trainer.name}} </option>
+          <select class="form-select title cursor-active" [(ngModel)]="trainer" (ngModelChange)="selectTrainer($event)">
+            <option class="cursor-active" selected [ngValue]="trainer" *ngIf="validTrainer">Trainer: {{trainer.name}} </option>
             <option *ngFor="let trainerItem of trainerList" [ngValue]="trainerItem">Trainer: {{trainerItem.name}}
             </option>
           </select>
