@@ -26,6 +26,11 @@ button:hover {
   border-radius: 10px;
 }
 
+h6 {
+  font-size: 10px;
+  padding-left: 10px;
+  color: red;
+}
 
 
 

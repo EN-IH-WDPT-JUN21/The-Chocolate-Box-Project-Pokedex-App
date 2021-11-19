@@ -129,6 +129,9 @@ export class TeamListComponent implements OnInit {
   }
 
   addPokemon():void {
+    if(!this.validPokemon){
+       window.alert("Invalid Pokemon Name")
+    }
     if(this.pokemonSlot == 1){
       this.pokemonId1 = this.pokemon.id;
       this.pokemonList.push(this.pokemon);
