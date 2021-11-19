@@ -36,3 +36,7 @@ h6 {
 .form-select {
   border-width: 0px;
 }
+
+.cursor-active {
+  cursor: pointer;
+}
