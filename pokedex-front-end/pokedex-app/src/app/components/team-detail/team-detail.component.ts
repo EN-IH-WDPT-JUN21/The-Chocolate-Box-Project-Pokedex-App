@@ -162,7 +162,9 @@ export class TeamDetailComponent implements OnInit {
   addPokemon(): void {
     if (this.pokemonList.length < 6 && this.validPokemon){
       this.pokemonList.push(this.pokemon)
-    }
+    } else (
+       window.alert("Invalid Pokemon Name")
+    )
   }
 
   goBack():void{
