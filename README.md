@@ -1,8 +1,16 @@
 # The-Chocolate-Box-Project-Pokedex-App
 
 ## Welcome to the Chocolate Box Pokedex
+## Table of Contents
+
+1. [**About**](#About)
+1. [**Getting started**](#Getting-started)
+2. [**Diagrams**](#Diagrams)
 
 
+<br><br>
+
+## About 
 #### This Pokedex will allow you to: 
 
 * Search Pokemon
@@ -12,15 +20,6 @@
 * Create / View and Edit Teams - made from upto 6 Pokemon & 1 Trainer
 
 * Create / View Trainers 
-<br><br>
-
-## Table of Contents
-
-1. [**Getting started**](#Getting-started)
-2. [**Diagrams**](#Diagrams)
-3. [**Website**](#Website)
-
-
 <br><br>
 ## Getting started
 
