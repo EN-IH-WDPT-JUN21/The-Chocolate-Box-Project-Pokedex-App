@@ -1,6 +1,28 @@
 <div class="item-container">
-    <button type="button" class="btn btn-light" (click)="removeTrainer(position)" style="float: right;">x</button>
-    <img src = 'https://www.seekpng.com/png/detail/242-2421423_pokemon-trainer-sprite-png-pixel-pokemon-trainer-sprites.png' style="max-width: 110px;">
-    <p>Trainer {{trainer.id}}</p>
+    <button type="button" class="btn btn-light" (click)="deleteTrainer(trainer.id)" style="float: right;">x</button>
+    <img src = {{trainer.photo}} style="max-width: 110px;">
+    <p><b>Trainer {{trainer.id}}</b></p>
     <p>{{trainer.name}}</p>
+    <!-- <button (click)="trainerDetails(trainerId)"><span style="font-style: italic;">Trainer details</span></button> -->
+
+    <!-- <div class="trainer-details" *ngIf="isButtonClicked">
+        <p> Age: <span style="font-weight: bold">{{trainer.age}}</span></p>
+        <p> Hobby: <span style="font-weight: bold">{{trainer.hobby}}</span></p>
+        <p> Favourite Pokemon ID: <span style="font-weight: bold">{{trainer.favouritePokemonId}}</span></p>
+        <p> Team ID: <span style="font-weight: bold">{{trainer.teamId}}</span></p>
+    </div> -->
+
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Details
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p> Age: <span style="font-weight: bold">{{trainer.age}}</span></p>
+            <p> Hobby: <span style="font-weight: bold">{{trainer.hobby}}</span></p>
+            <p> Favourite Pokemon ID: <span style="font-weight: bold">{{trainer.favouritePokemonId}}</span></p>
+            <p> Team ID: <span style="font-weight: bold">{{trainer.teamId}}</span></p>
+        </mat-expansion-panel>
+    </mat-accordion>
 </div>

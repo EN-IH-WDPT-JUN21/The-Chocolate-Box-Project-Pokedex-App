@@ -2,3 +2,7 @@
     height: 50px;
     width: auto;
 }
+
+.router-link-active {
+  cursor: pointer;
+}

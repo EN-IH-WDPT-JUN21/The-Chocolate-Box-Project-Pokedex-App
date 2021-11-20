@@ -1,13 +1,14 @@
 
     <form (ngSubmit)="sendName()" [formGroup]="pokemonSearch">
      <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Search Pokemon</mat-label>
+                <mat-label>{{label}}</mat-label>
                 <input type="text" 
                 matInput 
                 placeholder="Pokemon Name..." 
                 formControlName="pokemonName" 
                 [matAutocomplete]="auto"
-                (keyup)="sendName()">
+                (keyup)="sendName()"
+                (keyup.enter)="addPokemon()">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
           <mat-option *ngFor="let pokemon of filteredOptions | async" [value]="pokemon.name" (click)="sendName()">
             {{pokemon.name}}

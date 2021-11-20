@@ -1,8 +1,16 @@
 .item-container {
-    border: 2px solid #eee;
+    border: 2px solid #ff00001f;
     padding: 20px;
+}
+
+.item-container:hover {
+    background-color: #ff00001f;
 }
 
 p {
     margin-top: 15px;
+}
+
+button {
+    border: 2px solid #ff00001f;
 }

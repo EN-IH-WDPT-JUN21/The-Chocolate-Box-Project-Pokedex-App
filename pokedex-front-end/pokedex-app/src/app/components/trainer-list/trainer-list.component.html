@@ -46,7 +46,7 @@
 
                 <mat-grid-tile>
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Photo</mat-label>
+                    <mat-label>Photo URL</mat-label>
                     <input type="text" matInput formControlName="photo" placeholder="Photo...">
                     <mat-error *ngIf="photo.invalid && photo.touched">
                         Please enter a valid photo URL.
@@ -67,7 +67,7 @@
                 </mat-grid-tile>
 
                 <mat-grid-tile>
-                <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Create trainer</button>
+                <button mat-raised-button color="warn" type="submit" [disabled]="registerForm.invalid">Create trainer</button>
                 </mat-grid-tile>
 
             </form>
@@ -77,5 +77,5 @@
 </div>
 
 <div class="item-wrapper">
-    <app-trainer-list-item *ngFor="let trainer of trainerList" [trainer]="trainer"></app-trainer-list-item>
+    <app-trainer-list-item *ngFor="let trainer of trainerList" [trainer]="trainer" (trainerRemoved)="deleteTrainer($event)"></app-trainer-list-item>
 </div>

@@ -45,3 +45,11 @@
   border: 2px solid #eee;
   border-radius: 10px;
 }
+
+.team-registration:hover {
+  background-color: #ff00001f;
+}
+
+.router-link-active {
+  cursor: pointer;
+}

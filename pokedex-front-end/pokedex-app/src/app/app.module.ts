@@ -31,6 +31,9 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ForrestComponent } from '../environments/forrest/forrest.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +48,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     TrainerDetailComponent,
     HeaderComponent,
     FooterComponent,
-    PokemonSearchComponent
+    PokemonSearchComponent,
+    ForrestComponent
 
   ],
   imports: [
@@ -64,7 +68,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatCardModule,
     MatTabsModule,
     MatButtonToggleModule,
+
     NgxPaginationModule
+
+    MatExpansionModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

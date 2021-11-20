@@ -9,11 +9,13 @@ import { Pokemon, PokemonDTO } from 'src/app/models/pokemon-model';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.css']
 })
+
 export class PokemonDetailComponent implements OnInit, OnChanges {
 
   @Input() pokemonListDTOResult!: PokemonListDTOResult;
   pokemonDTO!: PokemonDTO 
   @Input() pokemon!:Pokemon;
+
   result:any;
 
   constructor(private pokemonService:PokemonService,

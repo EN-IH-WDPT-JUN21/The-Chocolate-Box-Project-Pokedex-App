@@ -1,7 +1,7 @@
 import { Form, FormControl, FormGroup } from '@angular/forms';
 import { PokemonService } from './../../services/pokemon.service';
 import { PokemonDTO, PokemonListDTOResult } from './../../models/pokemon-model';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -15,9 +15,14 @@ export class PokemonSearchComponent implements OnInit {
   pokemonList:PokemonListDTOResult[];
   pokemonSearch: FormGroup;
   pokemonName: FormControl;
+
+  @Input()
+  label!: string;
+  
   filteredOptions!: Observable<PokemonListDTOResult[]>;
 
   @Output() pokemonNameOutput: EventEmitter<string> = new EventEmitter();
+  @Output() addPokemonOutput: EventEmitter<string> = new EventEmitter();
 
   constructor(private pokemonService:PokemonService) {
     this.pokemonList = []
@@ -44,13 +49,17 @@ export class PokemonSearchComponent implements OnInit {
     }
 
     sendName():void {
-      this.pokemonNameOutput.emit(this.pokemonName.value)
+      this.pokemonNameOutput.emit(this.pokemonName.value.toLowerCase().trim())
+    }
+
+    addPokemon(): void {
+      this.addPokemonOutput.emit(this.pokemonName.value.toLowerCase().trim())
     }
 
   private _filter(): PokemonListDTOResult[] {
-    const filterValue = this.pokemonName.value;
+    const filterValue:string = this.pokemonName.value.toLowerCase().trim();
     return this.pokemonList
-    .filter(pokemon => pokemon.name.includes(filterValue));
+    .filter(pokemon => pokemon.name.toLowerCase().includes(filterValue));
   }
 
 }
