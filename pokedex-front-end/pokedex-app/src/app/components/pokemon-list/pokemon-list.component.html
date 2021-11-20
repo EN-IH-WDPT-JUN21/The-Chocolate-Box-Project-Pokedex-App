@@ -1,14 +1,20 @@
-
-<div class="pokedex-view">
-    <div>
-    <app-pokemon-list-item *ngFor="let i = index; let item of pokemonList | paginate: {
-    itemsPerPage: 8,
-    currentPage: page,
-    totalItems: 0 }" [pokemonItem]="item" (click)="showDetail(item)"></app-pokemon-list-item>
-    <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
-</div>
-<div>
-    <app-pokemon-detail [pokemon]="pokemon"></app-pokemon-detail>
-</div>
+<div class="content">
+    <div class="d-flex justify-content-center">
+        <app-pokemon-search [validPokemon]="validPokemon" (pokemonNameOutput)="onSearch($event)" (addPokemonOutput)="search($event)" [label]="label"></app-pokemon-search>
+    </div>
+    <div class="d-flex flex-row justify-content-center">
+        <div class="pokemon-list">
+                <app-pokemon-list-item *ngFor="let i = index; let item of pokemonList | paginate: {
+                    itemsPerPage: 8,
+                    currentPage: page,
+                    totalItems: 0 }" [pokemonItem]="item" (click)="showDetail(item)"></app-pokemon-list-item>
+            </div>
+            <div>
+                <app-pokemon-detail [pokemon]="pokemon"></app-pokemon-detail>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
 </div>
 

@@ -14,6 +14,7 @@ export class PokemonDetailComponent implements OnInit, OnChanges {
 
   @Input() pokemonListDTOResult!: PokemonListDTOResult;
   pokemonDTO!: PokemonDTO 
+  
   @Input() pokemon!:Pokemon;
 
   result:any;

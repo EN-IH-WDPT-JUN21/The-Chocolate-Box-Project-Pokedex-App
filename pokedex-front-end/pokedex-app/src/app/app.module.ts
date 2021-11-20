@@ -68,9 +68,7 @@ import { ForrestComponent } from '../environments/forrest/forrest.component';
     MatCardModule,
     MatTabsModule,
     MatButtonToggleModule,
-
-    NgxPaginationModule
-
+    NgxPaginationModule,
     MatExpansionModule
 
   ],

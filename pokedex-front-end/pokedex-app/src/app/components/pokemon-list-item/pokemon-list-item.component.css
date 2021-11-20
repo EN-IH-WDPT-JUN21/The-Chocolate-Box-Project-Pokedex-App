@@ -5,6 +5,11 @@
     height: 60px;
 }
 
+.pokemon-item:hover {
+  background-color: #ff00001f;
+}
+
+
 .pokemon-name {
     display: flex;
     align-items:flex-end; 

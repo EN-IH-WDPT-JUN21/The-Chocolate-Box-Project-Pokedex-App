@@ -15,6 +15,8 @@ export class PokemonSearchComponent implements OnInit {
   pokemonList:PokemonListDTOResult[];
   pokemonSearch: FormGroup;
   pokemonName: FormControl;
+  @Input()
+  validPokemon: boolean = true;
 
   @Input()
   label!: string;
