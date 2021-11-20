@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatPaginatorModule } from '@angular/material/paginator'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,8 @@ import { TrainerListComponent } from './components/trainer-list/trainer-list.com
 import { TrainerDetailComponent } from './components/trainer-detail/trainer-detail.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+
+
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatButtonModule } from '@angular/material/button'
@@ -64,7 +68,11 @@ import { ForrestComponent } from '../environments/forrest/forrest.component';
     MatCardModule,
     MatTabsModule,
     MatButtonToggleModule,
+
+    NgxPaginationModule
+
     MatExpansionModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

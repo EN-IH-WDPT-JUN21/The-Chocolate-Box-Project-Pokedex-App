@@ -3,17 +3,17 @@ export interface Pokemon {
     name: string,
     type: string,
     spriteUrl: string,
-    imageUrl: string,
+    imageUrl?: string,
     hp: number,
     attack: number,
     defence: number,
     specialAttack: number,
     specialDefence: number,
     speed: number,
-    abilityName1: string,
-    abilityDetail1: string,
-    abilityName2: string,
-    abilityDetail2: string
+    abilityName1?: string,
+    abilityDetail1?: string,
+    abilityName2?: string,
+    abilityDetail2?: string
 }
 
 export interface PokemonListDTO {
@@ -47,6 +47,9 @@ export interface PokemonDTO {
         front_default: string,
         other: {
             dream_world: {
+                front_default: string
+            },
+            home: {
                 front_default: string
             }
         }
@@ -88,7 +91,7 @@ export interface PokemonDTO {
                 name: string //speed
             }
         },
-    ]
+    ],
     types: [
         {
             type: {

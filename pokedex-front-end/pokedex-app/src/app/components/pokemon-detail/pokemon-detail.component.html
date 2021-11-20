@@ -1,21 +1,34 @@
-<mat-card  class="pokemon-card">
-                        <mat-card-title-group>
-                            <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
-                            <mat-card-subtitle>TYPE: {{pokemonDTO.types[0].type.name | uppercase}}</mat-card-subtitle>
-                            <img mat-card-sm-image src="{{pokemonDTO.sprites.front_default}}" >
-                        </mat-card-title-group>
-                        <mat-card-content>
-                            <table class="table">
-                                <tr>
-                                    <td>HP:<br> {{pokemonDTO.stats[0].base_stat}}</td>
-                                    <td>ATTACK:<br> {{pokemonDTO.stats[1].base_stat}}</td>
-                                    <td> DEFENCE:<br> {{pokemonDTO.stats[2].base_stat}}</td>
-                                </tr>
-                                <tr>
-                                   <td> SPECIAL-ATTACK:<br> {{pokemonDTO.stats[3].base_stat}}</td>
-                                   <td> SPECIAL-DEFENCE:<br> {{pokemonDTO.stats[4].base_stat}}</td>
-                                   <td> SPEED:<br> {{pokemonDTO.stats[5].base_stat}}</td>
-                                </tr>
-                            </table>
-                        </mat-card-content>
-                    </mat-card>
+<mat-card class="pokemon-card">
+  <mat-card-header>
+    <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
+    <mat-card-subtitle>TYPE: {{pokemon.type | uppercase}}</mat-card-subtitle>
+  </mat-card-header>
+  <div style="text-align: center;">
+  <img src="{{pokemon.imageUrl}}" width="200" height="200">
+</div>
+<br>
+  <mat-card-content>
+    <table class="table">
+      <tr>
+        <td>HP:<br> {{pokemon.hp}}</td>
+        <td>ATTACK:<br> {{pokemon.attack}}</td>
+        <td> DEFENCE:<br> {{pokemon.defence}}</td>
+      </tr>
+      <tr>
+        <td> SPECIAL-ATTACK:<br> {{pokemon.specialAttack}}</td>
+        <td> SPECIAL-DEFENCE:<br> {{pokemon.specialDefence}}</td>
+        <td> SPEED:<br> {{pokemon.speed}}</td>
+      </tr>
+      <tr>
+        <td> ABILITY 1:<br> {{pokemon.abilityName1}}</td>
+        <td>  <br> </td>
+        <td> ABILITY 2:<br> {{pokemon.abilityName2}}</td>
+      </tr>
+      <tr>
+        <td> ABILITY DETAIL 1:<br> {{pokemon.abilityDetail1}}</td>
+        <td>  <br> </td>
+        <td> ABILITY DETAIL 2:<br> {{pokemon.abilityDetail2}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

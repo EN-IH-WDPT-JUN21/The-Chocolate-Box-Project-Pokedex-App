@@ -24,7 +24,7 @@ export class PokemonListItemComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.name = this.pokemonItem.name
+    this.name = this.pokemonItem.name.toUpperCase()
     this.getPokemonURL();
     this.getSpriteURL();
     
