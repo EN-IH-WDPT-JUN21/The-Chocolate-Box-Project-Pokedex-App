@@ -2,3 +2,22 @@
     display: flex;
     
 }
+
+.content {
+    display: block;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+}
+
+.pokemon-list {
+    display: block;
+}
+
+h6 {
+  font-size: 8px;
+  padding-left: 10px;
+  color: red;
+}
+

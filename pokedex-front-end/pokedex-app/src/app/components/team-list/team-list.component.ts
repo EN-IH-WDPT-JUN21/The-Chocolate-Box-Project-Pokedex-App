@@ -72,7 +72,7 @@ export class TeamListComponent implements OnInit {
     })
   }
 
-  addTeam():void {
+  async addTeam():Promise<void> {
     let teamDTO:TeamDTO = {
       id: 0,
       name: this.name.value,
@@ -94,8 +94,8 @@ export class TeamListComponent implements OnInit {
       this.trainerList = result)
   }
 
-  onSubmit():void{
-      this.addTeam();
+  async onSubmit():Promise<void>{
+      await this.addTeam();
       alert("Team Created Successfull")
       this.reloadComponent();
   }

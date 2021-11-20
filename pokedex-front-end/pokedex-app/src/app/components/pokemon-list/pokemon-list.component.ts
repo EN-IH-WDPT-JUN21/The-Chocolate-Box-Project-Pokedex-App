@@ -11,6 +11,9 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class PokemonListComponent implements OnInit {
 
+label: string = "Search for pokemon"
+validPokemon: boolean = true;  
+
 pokemonList: PokemonListDTOResult[];
 pokemonListDTOResult!: PokemonListDTOResult;
 pokemonDTO: PokemonDTO = {
@@ -146,7 +149,6 @@ page: number = 1;
     await this.getAbility2Description();
     this.createPokemon();
     console.log(this.pokemon.name +" from showDetail in List after button click")
-
   }
 
 
@@ -202,6 +204,23 @@ page: number = 1;
     this.pokemon.abilityName2 = this.pokemonDTO.abilities[1].ability.name;
     } else { this.pokemon.abilityName2 = "No Second Ability"}
     this.pokemon.abilityDetail2 = this.ability2Description;
+  }
+
+  async onSearch(pokemonName: any): Promise<any>  {
+    this.pokemonService.getPokemonDTObyName(pokemonName).subscribe( result => {
+      this.pokemonDTO = result;
+      this.validPokemon = true;
+    },
+    (error) => {
+      console.error('Error Found When Searching')
+      this.validPokemon = false;
+    })
+  }
+
+  async search(pokemonName:any){
+    if(this.validPokemon){
+      this.createPokemon();
+    }
   }
 
 }

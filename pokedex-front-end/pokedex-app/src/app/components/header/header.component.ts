@@ -7,6 +7,7 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  
 
   constructor() { }
 

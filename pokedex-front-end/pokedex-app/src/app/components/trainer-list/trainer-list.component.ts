@@ -50,12 +50,12 @@ export class TrainerListComponent implements OnInit {
     )
   }
 
-  onSubmit(){
-    this.createTrainer();
+  async onSubmit(){
+    await this.createTrainer();
     this.reloadComponent();
   }
 
-  createTrainer(): void {
+  async createTrainer(): Promise<void> {
     let trainerDTO: TrainerDTO = {
       id: 0,
       name: this.name.value,

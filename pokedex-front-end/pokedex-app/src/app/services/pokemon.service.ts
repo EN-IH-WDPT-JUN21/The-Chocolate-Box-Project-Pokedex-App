@@ -9,14 +9,14 @@ import { Observable } from 'rxjs';
 export class PokemonService {
 
 
-  readonly pokemonListURL: string = "https://pokeapi.co/api/v2/pokemon?limit=904"
+  readonly pokemonListURL: string = "https://pokeapi.co/api/v2/pokemon"
 
   constructor(
     private http: HttpClient
   ) { }
   
 getPokemonListDTO(url = this.pokemonListURL): Observable<any> {
-  return this.http.get<any>(url);
+  return this.http.get<any>(url + "?limit=904");
 }
 
 getPokemonDTO(url: string): Observable<any> {
