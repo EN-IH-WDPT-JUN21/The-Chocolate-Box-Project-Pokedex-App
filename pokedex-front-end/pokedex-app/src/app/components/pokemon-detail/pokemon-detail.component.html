@@ -3,9 +3,10 @@
     <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
     <mat-card-subtitle>TYPE: {{pokemon.type | uppercase}}</mat-card-subtitle>
   </mat-card-header>
-  <div style="justify-content: center;">
-  <img src="{{pokemon.imageUrl}}" width="300" height="300">
+  <div style="text-align: center;">
+  <img src="{{pokemon.imageUrl}}" width="200" height="200">
 </div>
+<br>
   <mat-card-content>
     <table class="table">
       <tr>
@@ -17,6 +18,16 @@
         <td> SPECIAL-ATTACK:<br> {{pokemon.specialAttack}}</td>
         <td> SPECIAL-DEFENCE:<br> {{pokemon.specialDefence}}</td>
         <td> SPEED:<br> {{pokemon.speed}}</td>
+      </tr>
+      <tr>
+        <td> ABILITY 1:<br> {{pokemon.abilityName1}}</td>
+        <td>  <br> </td>
+        <td> ABILITY 2:<br> {{pokemon.abilityName2}}</td>
+      </tr>
+      <tr>
+        <td> ABILITY DETAIL 1:<br> {{pokemon.abilityDetail1}}</td>
+        <td>  <br> </td>
+        <td> ABILITY DETAIL 2:<br> {{pokemon.abilityDetail2}}</td>
       </tr>
     </table>
   </mat-card-content>
